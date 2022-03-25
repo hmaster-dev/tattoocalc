@@ -19,7 +19,7 @@ export default class HelloWorld extends Vue {
     await this.getMsg();
   }
   async getMsg() {
-    const data = await axios.get(`http://localhost:3001`);
+    const data = await axios.get(`api/msg`);
     console.log(data);
     this.msg = data.data.msg;
   }
