@@ -12,7 +12,7 @@ async function bootstrap() {
   const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('/api/docs/', app, swaggerDocument);
   app.enableCors();
-  app.useStaticAssets(join(__dirname, '../../build/'));
+  app.useStaticAssets(join(__dirname, '../build/'));
   await app.listen(3001);
 }
 bootstrap();
