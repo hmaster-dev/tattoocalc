@@ -1,23 +1,32 @@
 <template>
   <form v-on:submit.prevent="onSubmit" class="form">
     <label for="hours">Количество часов работы</label>
-    <input id="hours" v-model="hours" placeholder="Количество часов работы" />
+    <input
+      id="hours"
+      v-model="hours"
+      type="number"
+      placeholder="Количество часов работы"
+    />
     <label for="rass">Стоимость расходников (по-умолчанию 40)</label>
     <input
       id="rass"
       v-model="rass"
+      type="number"
       placeholder="Стоимость расходников (по-умолчанию 40)"
     />
     <label for="oneHour">Стоимость одного часа (по-умолчанию 30)</label>
     <input
       id="oneHour"
       v-model="oneHour"
+      type="number"
       placeholder="Стоимость одного часа (по-умолчанию 30)"
     />
     <label for="coef">Коэффициент часа (по-умолчанию 1.2)</label>
     <input
       id="coef"
       v-model="coef"
+      type="number"
+      step="0.1"
       placeholder="Коэффициент часа (по-умолчанию 1.2)"
     />
     <input type="submit" />
@@ -59,7 +68,6 @@ export default class Calculate extends Vue {
       oneHour: this.oneHour,
       coef: this.coef,
     };
-    console.log(request);
     this.calc(request);
   }
 }
@@ -97,5 +105,13 @@ label {
   padding: 0 20px;
   color: #2c3e50;
   font-size: 22px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 </style>
